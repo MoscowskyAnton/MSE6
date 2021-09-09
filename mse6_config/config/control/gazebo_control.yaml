@@ -1,0 +1,72 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+  
+mobile_base_controller:
+  type        : "ackermann_steering_controller/AckermannSteeringController"
+  rear_wheel: 'fake_back_wheel_j'
+  front_steer: 'fake_fwd_wheel_j'
+  publish_rate: 50.0               # default: 50
+  pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+
+  # Wheel separation between the rear and the front, and diameter of the rear. 
+  # These are both optional.
+  # ackermann_steering_controller will attempt to read either one or both from the
+  # URDF if not specified as a parameter.
+  wheel_separation_h : 0.13
+  wheel_radius : 0.025
+
+  # Wheel separation and radius multipliers for odometry calibration.
+  wheel_separation_h_multiplier: 1.0 # default: 1.0
+  wheel_radius_multiplier    : 1.0 # default: 1.0
+
+  # Steer position angle multipliers for fine tuning.
+  steer_pos_multiplier       : 1.0
+
+  # Velocity commands timeout [s], default 0.5
+  cmd_vel_timeout: 0.25
+
+  # Base frame_id
+  base_frame_id: base_link
+
+  # Odom frame_id
+  odom_frame_id: odom
+
+  # Velocity and acceleration limits
+  # Whenever a min_* is unspecified, default to -max_*
+  linear:
+    x:
+      has_velocity_limits    : true
+      max_velocity           : 1.0  # m/s
+      min_velocity           : -0.5 # m/s
+      has_acceleration_limits: true
+      max_acceleration       : 0.8  # m/s^2
+      min_acceleration       : -0.4 # m/s^2
+      has_jerk_limits        : true
+      max_jerk               : 5.0 # m/s^3
+
+  angular:
+    z:
+      has_velocity_limits    : true
+      max_velocity           : 1.7  # rad/s
+      has_acceleration_limits: true
+      max_acceleration       : 1.5  # rad/s^2
+      has_jerk_limits        : true
+      max_jerk               : 2.5 # rad/s^3
+
+steer_bot_hardware_gazebo:
+    rear_wheel  : 'fake_back_wheel_j'
+    front_steer : 'fake_fwd_wheel_j'
+    virtual_rear_wheels  : ['back_left_wheel_j', 'back_right_wheel_j']
+    virtual_front_wheels : ['fwd_left_wheel_j', 'fwd_right_wheel_j']
+    virtual_front_steers : ['fwd_left_wheel_holder_j', 'fwd_right_wheel_holder_j']
+
+    # ackermann link mechanism
+    enable_ackermann_link: true
+    wheel_separation_w : 0.13
+    wheel_separation_h : 0.2
+    
+gains:
+  base_to_right_rear_wheel  :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
+  base_to_left_rear_wheel   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
