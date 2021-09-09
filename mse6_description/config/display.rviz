@@ -67,6 +67,8 @@ Visualization Manager:
           Value: true
         back_right_wheel_link:
           Value: true
+        base_link:
+          Value: true
         body_bott_link:
           Value: true
         body_upper_link:
@@ -85,20 +87,21 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        body_bott_link:
-          body_upper_link:
-            back_left_wheel_holder_link:
-              back_left_wheel_link:
-                {}
-            back_right_wheel_holder_link:
-              back_right_wheel_link:
-                {}
-            fwd_left_wheel_holder_link:
-              fwd_left_wheel_link:
-                {}
-            fwd_right_wheel_holder_link:
-              fwd_right_wheel_link:
-                {}
+        base_link:
+          body_bott_link:
+            body_upper_link:
+              back_left_wheel_holder_link:
+                back_left_wheel_link:
+                  {}
+              back_right_wheel_holder_link:
+                back_right_wheel_link:
+                  {}
+              fwd_left_wheel_holder_link:
+                fwd_left_wheel_link:
+                  {}
+              fwd_right_wheel_holder_link:
+                fwd_right_wheel_link:
+                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -131,6 +134,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         body_bott_link:
           Alpha: 1
           Show Axes: false
@@ -171,7 +178,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: body_bott_link
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -210,10 +217,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.14539800584316254
+      Pitch: 0.14539805054664612
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.160399913787842
+      Yaw: 0.9404009580612183
     Saved: ~
 Window Geometry:
   Displays:

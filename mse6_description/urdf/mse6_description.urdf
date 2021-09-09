@@ -4,6 +4,18 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="mse6_description">
+    
+  <link name="base_link"/>
+  
+  <joint name="body_bott_link_j"
+         type="fixed">
+      <parent link="base_link"/>
+      <child link="body_bott_link"/>
+      <origin
+          xyz = "0 0 0.055"
+          rpy="0 0 3.1416"/>
+  </joint>
+
   <link
     name="body_bott_link">
     <inertial>
