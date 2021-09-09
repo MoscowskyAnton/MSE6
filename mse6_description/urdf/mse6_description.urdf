@@ -56,6 +56,7 @@
       </geometry>
     </collision>
   </link>
+  
   <link
     name="body_upper_link">
     <inertial>
@@ -96,6 +97,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="body_bottom_j"
     type="fixed">
@@ -109,6 +111,21 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- FAKE FORWARD WHEEL -->
+  
+  <link name="fake_fwd_wheel_link"/>
+  
+  <joint name="fake_fwd_wheel_j" type="fixed">
+      <parent link="body_upper_link"/>
+      <child link="fake_fwd_wheel_link"/>
+      <origin
+          xyz="-0.1 -0.054 0"
+          rpy="1.5707 0 3.1415"
+          />
+    </joint>
+  
+  <!-- FORWARD LEFT WHEEL -->
 
   <link
     name="fwd_left_wheel_holder_link">
@@ -150,6 +167,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="fwd_left_wheel_holder_j"
     type="revolute">
@@ -171,6 +189,7 @@
       damping="0.01"
       friction="0.05" />
   </joint>
+  
   <link
     name="fwd_left_wheel_link">
     <inertial>
@@ -211,6 +230,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="fwd_left_wheel_j"
     type="continuous">
@@ -227,6 +247,8 @@
       damping="0.05"
       friction="0.01" />
   </joint>
+  
+  <!-- FORWARD RIGHT WHEEL -->
 
   <link
     name="fwd_right_wheel_holder_link">
@@ -268,6 +290,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="fwd_right_wheel_holder_j"
     type="revolute">
@@ -289,6 +312,7 @@
       damping="0.01"
       friction="0.05" />
   </joint>
+  
   <link
     name="fwd_right_wheel_link">
     <inertial>
@@ -329,6 +353,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="fwd_right_wheel_j"
     type="continuous">
@@ -345,6 +370,21 @@
       damping="0.05"
       friction="0.01" />
   </joint>
+  
+  <!-- FAKE BACK LINK -->
+  
+  <link name="fake_back_wheel_link"/>
+  
+  <joint name="fake_back_wheel_j" type="fixed">
+         <origin 
+             xyz="0.1 -0.054 0.0"
+             rpy="1.5707 0 3.1415"/>
+         <parent link="body_upper_link"/>
+         <child link="fake_back_wheel_link"/>
+     </joint>
+  
+  <!-- BACK LEFT WHEEL -->
+  
   <link
     name="back_left_wheel_holder_link">
     <inertial>
@@ -385,6 +425,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="back_left_wheel_holder_j"
     type="fixed">
@@ -398,6 +439,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
   <link
     name="back_left_wheel_link">
     <inertial>
@@ -438,6 +480,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="back_left_wheel_j"
     type="continuous">
@@ -454,6 +497,9 @@
       damping="0.01"
       friction="0.05" />
   </joint>
+  
+  <!-- BACK RIGHT WHEEL -->
+  
   <link
     name="back_right_wheel_holder_link">
     <inertial>
@@ -494,6 +540,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="back_right_wheel_holder_j"
     type="fixed">
@@ -507,6 +554,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
   <link
     name="back_right_wheel_link">
     <inertial>
@@ -547,6 +595,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="back_right_wheel_j"
     type="continuous">
