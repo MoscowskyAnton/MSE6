@@ -258,6 +258,17 @@
       friction="0.01" />
   </joint>
   
+  <transmission name="tran_fwd_left_steer">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fwd_left_wheel_holder_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fwd_left_steer">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
   <transmission name="tran_fwd_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="fwd_left_wheel_j">
@@ -391,6 +402,17 @@
       damping="0.05"
       friction="0.01" />
   </joint>
+  
+  <transmission name="tran_fwd_right_steer">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fwd_right_wheel_holder_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fwd_right_steer">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   
   <transmission name="tran_fwd_right">
     <type>transmission_interface/SimpleTransmission</type>
