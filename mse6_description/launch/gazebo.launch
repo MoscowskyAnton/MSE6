@@ -17,11 +17,7 @@
   
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <param name="use_gui" value="False"/>
-    </node>
-
-  
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
-    args="-param robot_description -urdf -z 0.1 -x 0 -y 0 -Y 0 -model $(arg robot)" /> 
+    </node>    
     
   <!--<node
     name="spawn_model"
@@ -32,7 +28,10 @@
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" 
         respawn="false" output="screen" 
-        args="mobile_base_controller joint_state_controller"/>
+        args="joint_state_controller mobile_base_controller"/>
+  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+    args="-param robot_description -urdf -z 0.1 -x 0 -y 0 -Y 0 -model $(arg robot)" /> 
   
   <node
     name="rviz"

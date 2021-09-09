@@ -258,6 +258,17 @@
       friction="0.01" />
   </joint>
   
+  <transmission name="tran_fwd_left">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fwd_left_wheel_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fwd_left">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
   <!-- FORWARD RIGHT WHEEL -->
 
   <link
@@ -380,6 +391,17 @@
       damping="0.05"
       friction="0.01" />
   </joint>
+  
+  <transmission name="tran_fwd_right">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fwd_right_wheel_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fwd_right">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   
   <!-- FAKE BACK LINK -->
   
@@ -509,6 +531,28 @@
       friction="0.05" />
   </joint>
   
+  <transmission name="tran_back_left">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="back_left_wheel_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="back_left">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_left_wheel_j">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+  
   <!-- BACK RIGHT WHEEL -->
   
   <link
@@ -623,4 +667,27 @@
       damping="0.01"
       friction="0.05" />
   </joint>
+  
+  <transmission name="tran_back_right">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="back_right_wheel_j">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="back_right">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran2">
+      <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_right_wheel_j">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+  
 </robot>

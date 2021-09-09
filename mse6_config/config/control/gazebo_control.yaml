@@ -58,9 +58,9 @@ mobile_base_controller:
 steer_bot_hardware_gazebo:
     rear_wheel  : 'fake_back_wheel_j'
     front_steer : 'fake_fwd_wheel_j'
-    virtual_rear_wheels  : ['back_left_wheel_j', 'back_right_wheel_j']
-    virtual_front_wheels : ['fwd_left_wheel_j', 'fwd_right_wheel_j']
-    virtual_front_steers : ['fwd_left_wheel_holder_j', 'fwd_right_wheel_holder_j']
+    virtual_rear_wheels  : ['back_right_wheel_j', 'back_left_wheel_j']
+    virtual_front_wheels : ['fwd_right_wheel_j', 'fwd_left_wheel_j']
+    virtual_front_steers : ['fwd_right_wheel_holder_j', 'fwd_left_wheel_holder_j']
 
     # ackermann link mechanism
     enable_ackermann_link: true
