@@ -2,11 +2,13 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="mse6" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mse6">
     
   <xacro:include filename="$(find mse6_description)/urdf/mse6.gazebo"/>
     
+  <xacro:property name="wheel_r" value="0.025"/>  
+  <xacro:property name="wheel_h" value="0.030"/>
+  
   <link name="base_link"/>
   
   <joint name="body_bott_link_j"
@@ -163,6 +165,7 @@
       </geometry>
       <material
         name="">
+
         <color
           rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
@@ -232,12 +235,13 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 ${wheel_h/2} 0"
+        rpy="${pi/2} 0 0" />
       <geometry>
-        <mesh
-          filename="package://mse6_description/meshes/fwd_left_wheel_link.STL" />
-      </geometry>
+        <!--<mesh
+          filename="package://mse6_description/meshes/fwd_left_wheel_link.STL" />-->
+          <cylinder length="${wheel_h}" radius="${wheel_r}"/>          
+      </geometry>      
     </collision>
   </link>
   
@@ -269,7 +273,7 @@
     </actuator>
   </transmission>
   
-  <transmission name="tran_fwd_left">
+  <!--<transmission name="tran_fwd_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="fwd_left_wheel_j">
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
@@ -278,7 +282,7 @@
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission>
+  </transmission>-->
   
   <!-- FORWARD RIGHT WHEEL -->
 
@@ -377,11 +381,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 ${wheel_h/2} 0"
+        rpy="${pi/2} 0 0" />
       <geometry>
-        <mesh
-          filename="package://mse6_description/meshes/fwd_right_wheel_link.STL" />
+        <!--<mesh
+          filename="package://mse6_description/meshes/fwd_left_wheel_link.STL" />-->
+          <cylinder length="${wheel_h}" radius="${wheel_r}"/>          
       </geometry>
     </collision>
   </link>
@@ -414,7 +419,7 @@
     </actuator>
   </transmission>
   
-  <transmission name="tran_fwd_right">
+  <!--<transmission name="tran_fwd_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="fwd_right_wheel_j">
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
@@ -423,7 +428,7 @@
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission>
+  </transmission>-->
   
   <!-- FAKE BACK LINK -->
   
@@ -527,11 +532,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 ${wheel_h/2} 0"
+        rpy="${pi/2} 0 0" />
       <geometry>
-        <mesh
-          filename="package://mse6_description/meshes/back_left_wheel_link.STL" />
+        <!--<mesh
+          filename="package://mse6_description/meshes/fwd_left_wheel_link.STL" />-->
+          <cylinder length="${wheel_h}" radius="${wheel_r}"/>          
       </geometry>
     </collision>
   </link>
@@ -664,11 +670,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 ${wheel_h/2} 0"
+        rpy="${pi/2} 0 0" />
       <geometry>
-        <mesh
-          filename="package://mse6_description/meshes/back_right_wheel_link.STL" />
+        <!--<mesh
+          filename="package://mse6_description/meshes/fwd_left_wheel_link.STL" />-->
+          <cylinder length="${wheel_h}" radius="${wheel_r}"/>          
       </geometry>
     </collision>
   </link>
@@ -684,7 +691,7 @@
     <child
       link="back_right_wheel_link" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
     <dynamics
       damping="0.01"
       friction="0.05" />
@@ -711,5 +718,13 @@
           <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-  
+
+    <!--<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace></robotNamespace>
+      <robotSimType>steer_bot_hardware_gazebo/SteerBotHardwareGazebo</robotSimType>
+      
+    </plugin>
+  </gazebo>-->
+    
 </robot>

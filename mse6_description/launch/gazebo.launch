@@ -10,8 +10,7 @@
   <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load"/>
   
   <param
-    name="robot_description"
-    textfile="$(find mse6_description)/urdf/mse6_description.urdf" />
+    name="robot_description" command="$(find xacro)/xacro --inorder '$(find mse6_description)/urdf/mse6.xacro'"/>
   
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />    
   
