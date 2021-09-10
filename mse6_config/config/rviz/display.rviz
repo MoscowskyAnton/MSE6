@@ -25,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
   - Class: rviz_plugin_tutorials/Teleop
     Name: Teleop
     Topic: /mse6/mobile_base_controller/cmd_vel_
@@ -85,6 +85,8 @@ Visualization Manager:
           Value: true
         fwd_right_wheel_link:
           Value: true
+        laser_scanner_link:
+          Value: true
         map:
           Value: true
         odom:
@@ -116,6 +118,8 @@ Visualization Manager:
                   fwd_right_wheel_holder_link:
                     fwd_right_wheel_link:
                       {}
+              laser_scanner_link:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -190,6 +194,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        laser_scanner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: /mse6/robot_description
       TF Prefix: ""
@@ -265,6 +273,46 @@ Visualization Manager:
       Topic: /mse6/navigation/move_base/current_goal
       Unreliable: false
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.019999999552965164
+      Style: Spheres
+      Topic: /mse6/sensors/laser_scanner/scan_raw
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: LocalCostmap
+      Topic: /mse6/navigation/move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -293,25 +341,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10.496288299560547
+      Distance: 9.877840995788574
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.4591558873653412
-        Y: -0.5960361957550049
-        Z: -1.0069019794464111
+        X: -0.7703753709793091
+        Y: -0.238460510969162
+        Z: -0.5883281826972961
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4702437222003937
+      Pitch: 0.5802438259124756
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.2507767975330353
+      Yaw: 6.008962154388428
     Saved: ~
 Window Geometry:
   Displays:

@@ -23,9 +23,9 @@ laser_scan_obstacle_layer:
   combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
 
   laser_scan: 
-    sensor_frame: forward_lidar_link
+    sensor_frame: laser_scanner_link
     data_type: LaserScan
-    topic: /$(arg robot)/sensors/laser_scan/filtered
+    topic: /$(arg robot)/sensors/laser_scanner/scan_raw
     marking: true
     clearing: true
     obstacle_range: 24.5
