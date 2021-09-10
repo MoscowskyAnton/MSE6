@@ -3,6 +3,7 @@
 <launch>
 
   <arg name="robot" default="mse6"/>
+  <arg name="gui" default="true"/>
   
   <group ns="$(arg robot)">
       <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load"/>
@@ -10,7 +11,9 @@
   
   <include file="$(find mse6_config)/launch/software.launch"/>
     
-  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="gui" value="$(arg gui)"/>
+    </include>
         
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
     args="-param $(arg robot)/robot_description -urdf -z 0.1 -x 0 -y 0 -Y 0 -model $(arg robot)" /> 

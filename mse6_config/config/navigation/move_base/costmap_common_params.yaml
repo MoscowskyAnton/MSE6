@@ -2,9 +2,7 @@ transform_tolerance: 0.2
 
 always_send_full_costmap: false
 
-footprint: [[0.40, 0.35], [-0.90, 0.35], [-0.90, -0.35], [0.40, -0.35]]
-#footprint: [[1.0, 0.1], [.0, 0.1], [.0, -0.1], [1.0, -0.1]]  # for testing
-#robot_radius: 0.6
+footprint: [[0.20, 0.125], [0.20, -0.125], [-0.20, -0.125], [-0.20, 0.125]]
 
 
 static_layer:
@@ -23,13 +21,6 @@ laser_scan_obstacle_layer:
   track_unknown_space: true
   footprint_clearing_enabled: true
   combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
-  #point_cloud_rtab: 
-    #sensor_frame: $(arg robot)/base_link
-    #data_type: PointCloud2
-    #topic: /$(arg robot)/cloud_obstacles
-    #marking: true
-    #clearing: false
-    #max_obstacle_height: 1
 
   laser_scan: 
     sensor_frame: forward_lidar_link
