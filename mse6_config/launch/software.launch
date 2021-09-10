@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <launch>
 
   <arg name="robot" default="mse6"/>
   
-  <group ns="$(arg robot)">
-      
-    <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load"/>
-    
+  <group ns="$(arg robot)">          
+        
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mse6_description)/urdf/mse6.xacro'"/>
     
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>    
@@ -19,6 +16,10 @@
     <node name="controller_spawner" pkg="controller_manager" type="spawner" 
             respawn="false" output="screen" 
             args="joint_state_controller mobile_base_controller"/>
+    
+    <include file="$(find mse6_config)/launch/localization.launch"/>
+    
+    <include file="$(find mse6_config)/launch/navigation.launch"/>
 
   </group>
   

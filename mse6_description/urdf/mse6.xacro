@@ -9,6 +9,8 @@
   <xacro:property name="wheel_r" value="0.025"/>  
   <xacro:property name="wheel_h" value="0.030"/>
   
+  <xacro:property name="steer_limit" value="0.5"/>
+  
   <link name="base_link"/>
   
   <joint name="body_bott_link_j"
@@ -130,8 +132,8 @@
       <axis xyz="0 1 0"/>
       
       <limit
-        lower="-0.5"
-        upper="0.5"
+        lower="${-steer_limit}"
+        upper="${steer_limit}"
         effort="0.5"
         velocity="0.5" />
       
@@ -194,8 +196,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.5"
-      upper="0.5"
+      lower="${-steer_limit}"
+      upper="${steer_limit}"
       effort="0.5"
       velocity="0.5" />
     <dynamics

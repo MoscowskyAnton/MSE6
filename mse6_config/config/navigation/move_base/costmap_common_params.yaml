@@ -1,0 +1,88 @@
+transform_tolerance: 0.2
+
+always_send_full_costmap: false
+
+footprint: [[0.40, 0.35], [-0.90, 0.35], [-0.90, -0.35], [0.40, -0.35]]
+#footprint: [[1.0, 0.1], [.0, 0.1], [.0, -0.1], [1.0, -0.1]]  # for testing
+#robot_radius: 0.6
+
+
+static_layer:
+  unknown_cost_value: -1
+  lethal_cost_threshold: 254
+  first_map_only: true
+  subscribe_to_updates: false
+  track_unknown_space: true
+  use_maximum: true
+  trinary_costmap: true
+
+
+laser_scan_obstacle_layer:
+  observation_sources: laser_scan 
+
+  track_unknown_space: true
+  footprint_clearing_enabled: true
+  combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
+  #point_cloud_rtab: 
+    #sensor_frame: $(arg robot)/base_link
+    #data_type: PointCloud2
+    #topic: /$(arg robot)/cloud_obstacles
+    #marking: true
+    #clearing: false
+    #max_obstacle_height: 1
+
+  laser_scan: 
+    sensor_frame: forward_lidar_link
+    data_type: LaserScan
+    topic: /$(arg robot)/sensors/laser_scan/filtered
+    marking: true
+    clearing: true
+    obstacle_range: 24.5
+    raytrace_range: 25.
+    inf_is_valid: true
+
+primary_camera_obstacle_layer:
+    observation_sources: point_cloud_primary_camera
+    track_unknown_space: true
+    footprint_clearing_enabled: true
+    
+    point_cloud_primary_camera:
+        sensor_frame: ""
+        data_type: PointCloud2
+        topic: /$(arg robot)/sensors/primary_camera/depth_registered/points
+        marking: true
+        clearing: true
+        min_obstacle_height: 0.2
+        max_obstacle_height: 1.5
+        obstacle_range: 10.0
+        raytrace_range: 12.0
+
+back_camera_obstacle_layer:
+    observation_sources: point_cloud_back_camera
+    track_unknown_space: true
+    footprint_clearing_enabled: true
+    
+    point_cloud_back_camera:
+        sensor_frame: ""
+        data_type: PointCloud2
+        topic: /$(arg robot)/sensors/back_camera/depth/color/points
+        marking: true
+        clearing: true
+        min_obstacle_height: 0.2
+        max_obstacle_height: 1.5
+        obstacle_range: 5.0
+        raytrace_range: 4.99        
+        
+inflation_layer:
+  inflation_radius: 20.  # the bigger the better, defines where the gradient is
+  cost_scaling_factor: 1. # the bigger the steeper the gradient is
+
+sonar_sensor_layer:
+  ns: /$(arg robot)
+  topics:
+    - range_data
+  no_readings_timeout: 0.0
+  clear_threshold: 0.2
+  mark_threshold: 0.8
+  clear_on_max_reading: true
+

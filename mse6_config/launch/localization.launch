@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<launch>
+    
+    <arg name="robot" default="mse6"/>
+    <arg name="map_directory" default="empty"/>
+    
+    <group ns="localization">
+        
+        <node pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
+              args="0 0 0 0 0 0 map odom 100"/>                    
+        
+        <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find mse6_config)/config/localization/maps/$(arg map_directory)/move_base_map.yaml"/>
+        
+    </group>
+            
+</launch>

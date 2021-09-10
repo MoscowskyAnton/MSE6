@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /TF1/Tree1
       Splitter Ratio: 0.5
-    Tree Height: 254
+    Tree Height: 357
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -28,7 +28,7 @@ Panels:
     SyncSource: ""
   - Class: rviz_plugin_tutorials/Teleop
     Name: Teleop
-    Topic: /mse6/mobile_base_controller/cmd_vel
+    Topic: /mse6/mobile_base_controller/cmd_vel_
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -85,6 +85,8 @@ Visualization Manager:
           Value: true
         fwd_right_wheel_link:
           Value: true
+        map:
+          Value: true
         odom:
           Value: true
       Marker Alpha: 1
@@ -94,26 +96,27 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_link:
-            body_bott_link:
-              body_upper_link:
-                back_left_wheel_holder_link:
-                  back_left_wheel_link:
+        map:
+          odom:
+            base_link:
+              body_bott_link:
+                body_upper_link:
+                  back_left_wheel_holder_link:
+                    back_left_wheel_link:
+                      {}
+                  back_right_wheel_holder_link:
+                    back_right_wheel_link:
+                      {}
+                  fake_back_wheel_link:
                     {}
-                back_right_wheel_holder_link:
-                  back_right_wheel_link:
+                  fake_fwd_wheel_link:
                     {}
-                fake_back_wheel_link:
-                  {}
-                fake_fwd_wheel_link:
-                  {}
-                fwd_left_wheel_holder_link:
-                  fwd_left_wheel_link:
-                    {}
-                fwd_right_wheel_holder_link:
-                  fwd_right_wheel_link:
-                    {}
+                  fwd_left_wheel_holder_link:
+                    fwd_left_wheel_link:
+                      {}
+                  fwd_right_wheel_holder_link:
+                    fwd_right_wheel_link:
+                      {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -194,11 +197,84 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: GloabalPlan
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /mse6/navigation/move_base/GlobalPlanner/plan
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.029999999329447746
+      Head Length: 0.019999999552965164
+      Length: 0.30000001192092896
+      Line Style: Billboards
+      Line Width: 0.019999999552965164
+      Name: LocalPlan
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.009999999776482582
+      Shaft Length: 0.009999999776482582
+      Topic: /mse6/navigation/move_base/TebLocalPlannerROS/local_plan
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/Polygon
+      Color: 25; 255; 0
+      Enabled: true
+      Name: Footprint
+      Queue Size: 10
+      Topic: /mse6/navigation/move_base/global_costmap/footprint
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: NavGoal
+      Queue Size: 10
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /mse6/navigation/move_base/current_goal
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -214,7 +290,7 @@ Visualization Manager:
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: /move_base_simple/goal
+      Topic: /mse6/navigation/move_base_simple/goal
     - Class: rviz/PublishPoint
       Single click: true
       Topic: /clicked_point
@@ -222,7 +298,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.637282133102417
+      Distance: 7.917332649230957
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -230,17 +306,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.028510626405477524
-        Y: -0.05796816945075989
-        Z: 0.2050132155418396
+        X: -1.4595587253570557
+        Y: -0.030328065156936646
+        Z: 0.6235740780830383
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3503980040550232
+      Pitch: 0.4702437222003937
       Target Frame: <Fixed Frame>
-      Yaw: 0.8604010343551636
+      Yaw: 0.2507767975330353
     Saved: ~
 Window Geometry:
   Displays:
@@ -248,7 +324,7 @@ Window Geometry:
   Height: 1015
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001b60000033dfc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000007901000003fb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000044000001a2000000fd01000003fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00540065006c0065006f007001000001e70000019a000000540100000300000001000001100000033dfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007301000000440000033d000000d301000003fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000004efc0100000002fb0000000800540069006d0065010000000000000780000002ad01000003fb0000000800540069006d00650100000000000004500000000000000000000004b80000033d00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001b60000033dfc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000007901000003fb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000004400000209000000fd01000003fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00540065006c0065006f0070010000024e00000133000000540100000300000001000001100000033dfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a0056006900650077007301000000440000033d000000d301000003fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000004efc0100000002fb0000000800540069006d0065010000000000000780000002ad01000003fb0000000800540069006d00650100000000000004500000000000000000000004b80000033d00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Teleop:

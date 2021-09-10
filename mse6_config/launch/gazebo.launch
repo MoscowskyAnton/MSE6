@@ -4,6 +4,10 @@
 
   <arg name="robot" default="mse6"/>
   
+  <group ns="$(arg robot)">
+      <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load"/>
+  </group>  
+  
   <include file="$(find mse6_config)/launch/software.launch"/>
     
   <include file="$(find gazebo_ros)/launch/empty_world.launch" />
