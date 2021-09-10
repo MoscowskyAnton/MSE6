@@ -54,10 +54,10 @@
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
-      <!--<geometry>
+      <geometry>
         <mesh
           filename="package://mse6_description/meshes/body_bott_link.STL" />
-      </geometry>-->
+      </geometry>
     </collision>
   </link>
   

@@ -28,7 +28,7 @@ Panels:
     SyncSource: ""
   - Class: rviz_plugin_tutorials/Teleop
     Name: Teleop
-    Topic: /mobile_base_controller/cmd_vel
+    Topic: /mse6/mobile_base_controller/cmd_vel
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -189,7 +189,7 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: robot_description
+      Robot Description: /mse6/robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
