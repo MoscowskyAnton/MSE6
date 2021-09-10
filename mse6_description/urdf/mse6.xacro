@@ -256,7 +256,7 @@
     <child
       link="fwd_left_wheel_link" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
     <dynamics
       damping="0.05"
       friction="0.01" />
