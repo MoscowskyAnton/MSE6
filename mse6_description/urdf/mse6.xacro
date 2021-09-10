@@ -13,6 +13,8 @@
   
   <link name="base_link"/>
   
+  <!-- SENSORS -->
+  
   <link name="laser_scanner_link"/>
   
   <joint name="laser_scanner_j"
@@ -24,6 +26,28 @@
           rpy="0 0 0"/>
   </joint>
   
+  <link name="holocamera_link"/>
+  
+  <joint name="holocamera_j"
+         type="fixed">
+      <parent link="base_link"/>
+      <child link="holocamera_link"/>
+      <origin
+          xyz="0.19 0 0.07"
+          rpy="0 0 0"/>
+  </joint>
+  
+  <link name="holocamera_optical_link"/>
+  
+  <joint name="holocamera_optical_j"
+         type="fixed">
+      <parent link="holocamera_link"/>
+      <child link="holocamera_optical_link"/>
+      <origin
+          xyz="0 0 0"
+          rpy="${-pi/2} 0 ${-pi/2}"/>
+  </joint>
+  
   <!-- BODY -->
   
   <joint name="body_bott_link_j"
@@ -32,7 +56,7 @@
       <child link="body_bott_link"/>
       <origin
           xyz = "0 0 0.055"
-          rpy="0 0 3.1416"/>
+          rpy="0 0 ${pi}"/>
   </joint>
 
   <link
@@ -140,7 +164,7 @@
       <child link="fake_fwd_wheel_link"/>
       <origin
           xyz="-0.1 -0.054 0"
-          rpy="1.5707 0 3.1415"
+          rpy="${pi/2} 0 ${pi}"
           />
       <axis xyz="0 1 0"/>
       
@@ -452,7 +476,7 @@
   <joint name="fake_back_wheel_j" type="continuous">
          <origin 
              xyz="0.1 -0.054 0.0"
-             rpy="1.5707 0 3.1415"/>
+             rpy="${pi/2} 0 ${pi}"/>
          <parent link="body_upper_link"/>
          <child link="fake_back_wheel_link"/>
          <axis xyz="0 1 0"/>

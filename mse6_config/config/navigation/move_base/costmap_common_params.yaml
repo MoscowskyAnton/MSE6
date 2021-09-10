@@ -32,15 +32,15 @@ laser_scan_obstacle_layer:
     raytrace_range: 25.
     inf_is_valid: true
 
-primary_camera_obstacle_layer:
-    observation_sources: point_cloud_primary_camera
+holocamera_obstacle_layer:
+    observation_sources: point_cloud_holocamera
     track_unknown_space: true
     footprint_clearing_enabled: true
     
-    point_cloud_primary_camera:
+    point_cloud_holocamera:
         sensor_frame: ""
         data_type: PointCloud2
-        topic: /$(arg robot)/sensors/primary_camera/depth_registered/points
+        topic: /$(arg robot)/sensors/holocamera/depth_registered/points
         marking: true
         clearing: true
         min_obstacle_height: 0.2

@@ -16,7 +16,7 @@ local_costmap:
   - {name: static_layer, type: "costmap_2d::StaticLayer"}
   #- {name: sonar_sensor_layer, type: 'range_sensor_layer::RangeSensorLayer'}
   - {name: laser_scan_obstacle_layer, type: "costmap_2d::ObstacleLayer"}
-    # - {name: primary_camera_obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+  - {name: holocamera_obstacle_layer, type: "costmap_2d::ObstacleLayer"}
   - {name: back_camera_obstacle_layer, type: "costmap_2d::ObstacleLayer"}    
   - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
 
