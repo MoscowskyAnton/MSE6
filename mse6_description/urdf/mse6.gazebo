@@ -3,6 +3,8 @@
   <xacro:property name="wheel_friction" value="5"/>
   <xacro:property name="wheel_damping" value="0.4"/>
   <xacro:property name="wheel_mindepth" value="0.01"/>
+  <xacro:property name="wheel_kp" value="10000000"/>
+  <xacro:property name="wheel_kd" value="100"/>
     
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -18,7 +20,8 @@
         <mu2>${2*wheel_friction}</mu2>
         <dampingFactor>${wheel_damping}</dampingFactor>
         <minDepth>${wheel_mindepth}</minDepth>
-        <kp>10000000000</kp>
+        <kp>${wheel_kp}</kp>
+        <kd>${wheel_kd}</kd>
     </gazebo>
     
     <gazebo reference="fwd_right_wheel_link">
@@ -27,7 +30,8 @@
         <mu2>${2*wheel_friction}</mu2>
         <dampingFactor>${wheel_damping}</dampingFactor>
         <minDepth>${wheel_mindepth}</minDepth>
-        <kp>10000000000</kp>
+        <kp>${wheel_kp}</kp>
+        <kd>${wheel_kd}</kd>
     </gazebo>
     
     <gazebo reference="back_left_wheel_link">
@@ -36,7 +40,8 @@
         <mu2>${2*wheel_friction}</mu2>
         <dampingFactor>${wheel_damping}</dampingFactor>
         <minDepth>${wheel_mindepth}</minDepth>
-        <kp>10000000000</kp>
+        <kp>${wheel_kp}</kp>
+        <kd>${wheel_kd}</kd>
     </gazebo>
     
     <gazebo reference="back_right_wheel_link">
@@ -45,7 +50,8 @@
         <mu2>${2*wheel_friction}</mu2>
         <dampingFactor>${wheel_damping}</dampingFactor>
         <minDepth>${wheel_mindepth}</minDepth>
-        <kp>10000000000</kp>
+        <kp>${wheel_kp}</kp>
+        <kd>${wheel_kd}</kd>
     </gazebo>
 
 </robot>
