@@ -4,10 +4,21 @@
     <arg name="robot" default="mse6"/>
     <arg name="map_directory" default="empty"/>
     
+    
+    <!--
+    FIXED_ODOM - map and odom statically fixed
+    GAZEBO_GROUND_TRUTH - uses true pose of robot from gazebo to correct odom
+    -->
+    <arg name="localization_type" default="FIXED_ODOM"/>
+    
     <group ns="localization">
         
-        <node pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
-              args="0 0 0 0 0 0 map odom 100"/>                    
+        <node if="$(eval localization_type == 'FIXED_ODOM')" pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
+              args="0 0 0 0 0 0 map odom 100"/>          
+        
+        <node if="$(eval localization_type == 'GAZEBO_GROUND_TRUTH')" pkg="mse6_gazebo" type="gazebo_ground_truth_localizer.py" name="gazebo_ground_truth_localizer">
+            
+        </node>
         
         <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find mse6_config)/config/localization/maps/$(arg map_directory)/move_base_map.yaml"/>
         
