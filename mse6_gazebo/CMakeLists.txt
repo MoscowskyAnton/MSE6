@@ -207,5 +207,6 @@ include_directories(
 if ("$ENV{ROS_DISTRO}" STREQUAL "noetic")
 catkin_install_python(PROGRAMS
     scripts/gazebo_ground_truth_localizer.py    
+    scripts/aruco_marker_generator.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endif()
