@@ -4,7 +4,12 @@
 
   <arg name="robot" default="mse6"/>
   <arg name="gui" default="true"/>
+  <arg name="use_sim_time" default="true"/>  
   
+  <!--
+    FIXED_ODOM - map and odom statically fixed
+    GAZEBO_GROUND_TRUTH - uses true pose of robot from gazebo to correct odom
+    -->
   <arg name="localization_type" default="FIXED_ODOM"/>
   
   <group ns="$(arg robot)">
@@ -17,6 +22,7 @@
     
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="gui" value="$(arg gui)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     </include>
         
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 

@@ -17,7 +17,7 @@
               args="0 0 0 0 0 0 map odom 100"/>          
         
         <node if="$(eval localization_type == 'GAZEBO_GROUND_TRUTH')" pkg="mse6_gazebo" type="gazebo_ground_truth_localizer.py" name="gazebo_ground_truth_localizer">
-            
+            <param name="rate_hz" value="50"/>
         </node>
         
         <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find mse6_config)/config/localization/maps/$(arg map_directory)/move_base_map.yaml"/>
