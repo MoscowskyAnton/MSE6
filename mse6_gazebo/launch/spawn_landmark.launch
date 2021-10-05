@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>    
+  <arg name="urdf_path" default="$(find mse6_gazebo)/urdf/cube_landmark.urdf.xacro"/>
+  <arg name="aruco_id" default="0"/>  
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="R" default="0"/>
+  <arg name="P" default="0"/>
+  <arg name="Y" default="0"/>  
+  <arg name="len" default="0.1"/>
+  
+  <group ns="cube_landmark_$(arg aruco_id)">
+    <param name="descr" command="$(find xacro)/xacro --inorder '$(arg urdf_path)' aruco_id:=$(arg aruco_id) len:=$(arg len)" />
+    
+    <node name="cube_landmark_$(arg aruco_id)_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param descr -model cube_landmark_$(arg aruco_id) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)" respawn="false" output="screen" />
+  </group>
+
+</launch>

@@ -84,16 +84,14 @@ if __name__ == "__main__":
         except OSError:
             rospy.logerr(f'Unable to create path {path_to_textures}!')
             exit()
-    
-    
+        
     path_to_materials = os.path.join(pkg_dir, 'media', 'materials', 'scripts')
     if not os.path.isdir(path_to_materials):
         try:
             os.makedirs(path_to_materials)
         except OSError:
             rospy.logerr(f'Unable to create path {path_to_materials}!')
-            exit()
-    
+            exit()    
     
     try:
         for aid in range(number):
