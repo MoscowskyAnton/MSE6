@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+    
+    <arg name="robot" default="mse6"/>
+    
+    <group ns="perception">
+        
+        
+    
+    </group>
+            
+</launch>
