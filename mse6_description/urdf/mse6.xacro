@@ -17,7 +17,17 @@
   
   <!-- SENSORS -->
   
-  <link name="$(arg robot)/laser_scanner_link"/>
+  <link name="$(arg robot)/laser_scanner_link">
+      
+    <!--<collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>        
+          <box size="0.4 0.15 0.3" />
+      </geometry>
+    </collision>-->
+  </link>
   
   <joint name="$(arg robot)/laser_scanner_j"
          type="fixed">
@@ -98,6 +108,7 @@
       <geometry>
         <mesh
           filename="package://mse6_description/meshes/body_bott_link.STL" />
+          <!--<box size="0.4 0.15 0.3" />-->
       </geometry>
     </collision>
   </link>

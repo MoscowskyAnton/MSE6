@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!--<arg name="robot" default="mse6_00000"/>-->
+  <arg name="gui" default="true"/>
+  <arg name="use_sim_time" default="true"/>  
+  
+  <arg name="map_directory" default="empty"/>
+  
+  <arg name="num_bots" default="2"/>
+  
+  <!--
+    FIXED_ODOM - map and odom statically fixed
+    GAZEBO_GT - uses true pose of robot from gazebo to correct odom
+    -->
+  <arg name="localization_type" default="FIXED_ODOM"/>
+  
+  <env name="GAZEBO_MODEL_PATH"
+        value="$(find mse6_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+
+  <env name="GAZEBO_RESOURCE_PATH"
+    value="$(find mse6_gazebo):$(optenv GAZEBO_RESOURCE_PATH)"/>    
+  
+  <group if="$(eval map_directory == 'aruco_grid')" ns="aruco_grid_map">        
+    <node pkg="mse6_gazebo" name="landmark_map_generator" type="landmark_map_generator.py">
+        <param name="map_path" value="$(find mse6_config)/config/localization/maps/$(arg map_directory)/landmark_map.yaml"/>
+    </node>
+  </group>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+  </include>
+  
+  <include file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00000"/>
+      <arg name="map_directory" value="$(arg map_directory)"/>
+      <arg name="localization_type" value="$(arg localization_type)"/>
+      <arg name="x" value="0"/>
+      <arg name="y" value="0"/>
+      <arg name="Y" value="0"/>
+  </include>
+  
+  <include file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00001"/>
+      <arg name="map_directory" value="$(arg map_directory)"/>
+      <arg name="localization_type" value="$(arg localization_type)"/>
+      <arg name="x" value="1"/>
+      <arg name="y" value="0"/>
+      <arg name="Y" value="0"/>
+  </include>
+  
+  <include if="$(eval num_bots > 2)" file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00002"/>
+      <arg name="map_directory" value="$(arg map_directory)"/>
+      <arg name="localization_type" value="$(arg localization_type)"/>
+      <arg name="x" value="2"/>
+      <arg name="y" value="0"/>
+      <arg name="Y" value="0"/>
+  </include>
+  
+  <include if="$(eval num_bots > 3)" file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00002"/>
+      <arg name="map_directory" value="$(arg map_directory)"/>
+      <arg name="localization_type" value="$(arg localization_type)"/>
+      <arg name="x" value="3"/>
+      <arg name="y" value="0"/>
+      <arg name="Y" value="0"/>
+  </include>
+  
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find mse6_config)/config/rviz/multi_droid.rviz" />
+    
+</launch>

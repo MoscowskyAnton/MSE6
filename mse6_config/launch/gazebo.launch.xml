@@ -8,7 +8,11 @@
     -->
   <arg name="localization_type" default="FIXED_ODOM"/>
   
-    <group ns="$(arg robot)">
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>    
+  <arg name="Y" default="0"/>    
+  
+  <group ns="$(arg robot)">
       
     <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load" subst_value="true"/>
     
@@ -16,9 +20,14 @@
         <arg name="robot" value="$(arg robot)"/>
         <arg name="map_directory" value="$(arg map_directory)"/>
         <arg name="localization_type" value="$(arg localization_type)"/>
-    </include>
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="Y" value="$(arg Y)"/>
+    </include>        
   
   </group>  
   
+  <node name="$(arg robot)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+    args="-param $(arg robot)/robot_description -urdf -z 0.1 -x $(arg x) -y $(arg y) -Y $(arg Y) -model $(arg robot)" /> 
   
 </launch>

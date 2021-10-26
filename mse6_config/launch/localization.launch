@@ -10,11 +10,15 @@
     -->
     <arg name="localization_type" default="FIXED_ODOM"/>
     
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>    
+    <arg name="Y" default="0"/>    
+    
     <group ns="localization">
         
         <!-- FIXED ODOM -->
         <node if="$(eval localization_type == 'FIXED_ODOM')" pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
-              args="0 0 0 0 0 0 map $(arg robot)/odom 100"/>          
+              args="$(arg x) $(arg y) 0 $(arg Y) 0 0 map $(arg robot)/odom 100"/>          
         
         <!-- GAZEBO GROUND TRUTH -->
         <node if="$(eval localization_type == 'GAZEBO_GT')" pkg="mse6_gazebo" type="gazebo_ground_truth_localizer.py" name="gazebo_ground_truth_localizer" output="screen">
