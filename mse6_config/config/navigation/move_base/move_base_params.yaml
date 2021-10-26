@@ -39,7 +39,7 @@ GlobalPlanner:
 
 DWAPlannerROS:
   use_dwa: true
-  global_frame_id: odom
+  global_frame_id: $(arg robot)/odom
 
   acc_lim_x: 1.5
   acc_lim_y: 0.

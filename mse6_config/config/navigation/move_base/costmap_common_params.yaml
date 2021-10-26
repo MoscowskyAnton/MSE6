@@ -23,7 +23,7 @@ laser_scan_obstacle_layer:
   combination_method: 1  # 0 - overwrite, 1 - max, 99 - nothing
 
   laser_scan: 
-    sensor_frame: laser_scanner_link
+    sensor_frame: $(arg robot)/laser_scanner_link
     data_type: LaserScan
     topic: /$(arg robot)/sensors/laser_scanner/scan_raw
     marking: true
@@ -46,34 +46,10 @@ holocamera_obstacle_layer:
         min_obstacle_height: 0.2
         max_obstacle_height: 1.5
         obstacle_range: 10.0
-        raytrace_range: 12.0
-
-back_camera_obstacle_layer:
-    observation_sources: point_cloud_back_camera
-    track_unknown_space: true
-    footprint_clearing_enabled: true
-    
-    point_cloud_back_camera:
-        sensor_frame: ""
-        data_type: PointCloud2
-        topic: /$(arg robot)/sensors/back_camera/depth/color/points
-        marking: true
-        clearing: true
-        min_obstacle_height: 0.2
-        max_obstacle_height: 1.5
-        obstacle_range: 5.0
-        raytrace_range: 4.99        
+        raytrace_range: 12.0      
         
 inflation_layer:
   inflation_radius: 20.  # the bigger the better, defines where the gradient is
   cost_scaling_factor: 1. # the bigger the steeper the gradient is
 
-sonar_sensor_layer:
-  ns: /$(arg robot)
-  topics:
-    - range_data
-  no_readings_timeout: 0.0
-  clear_threshold: 0.2
-  mark_threshold: 0.8
-  clear_on_max_reading: true
 

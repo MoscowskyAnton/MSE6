@@ -42,6 +42,7 @@ class GazeboGroundTruthLocalizer(object):
                                     rospy.Duration(0.1)) #wait for 0.1 second
             
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+                rospy.logerr(f"Timed out transform from {self.odom_frame} to {self.robot_frame}")
                 return
             
             odom_bl_mat = tf.transformations.compose_matrix(

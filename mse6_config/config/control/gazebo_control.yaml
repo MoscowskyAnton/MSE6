@@ -4,8 +4,8 @@ joint_state_controller:
   
 mobile_base_controller:
   type        : "ackermann_steering_controller/AckermannSteeringController"
-  rear_wheel: 'fake_back_wheel_j'
-  front_steer: 'fake_fwd_wheel_j'
+  rear_wheel: '$(arg robot)/fake_back_wheel_j'
+  front_steer: '$(arg robot)/fake_fwd_wheel_j'
   publish_rate: 50.0               # default: 50
   pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
@@ -28,10 +28,10 @@ mobile_base_controller:
   cmd_vel_timeout: 0.25
 
   # Base frame_id
-  base_frame_id: base_link
+  base_frame_id: $(arg robot)/base_link
 
   # Odom frame_id
-  odom_frame_id: odom
+  odom_frame_id: $(arg robot)/odom
 
   # Velocity and acceleration limits
   # Whenever a min_* is unspecified, default to -max_*
@@ -56,11 +56,11 @@ mobile_base_controller:
       max_jerk               : 2.5 # rad/s^3
 
 steer_bot_hardware_gazebo:
-    rear_wheel  : 'fake_back_wheel_j'
-    front_steer : 'fake_fwd_wheel_j'
-    virtual_rear_wheels  : ['back_left_wheel_j', 'back_right_wheel_j']
-    virtual_front_wheels : ['fwd_left_wheel_j', 'fwd_right_wheel_j']
-    virtual_front_steers : ['fwd_left_wheel_holder_j', 'fwd_right_wheel_holder_j']
+    rear_wheel  : '$(arg robot)/fake_back_wheel_j'
+    front_steer : '$(arg robot)/fake_fwd_wheel_j'
+    virtual_rear_wheels  : ['$(arg robot)/back_left_wheel_j', '$(arg robot)/back_right_wheel_j']
+    virtual_front_wheels : ['$(arg robot)/fwd_left_wheel_j', '$(arg robot)/fwd_right_wheel_j']
+    virtual_front_steers : ['$(arg robot)/fwd_left_wheel_holder_j', '$(arg robot)/fwd_right_wheel_holder_j']
 
     # ackermann link mechanism
     enable_ackermann_link: true
@@ -68,8 +68,8 @@ steer_bot_hardware_gazebo:
     wheel_separation_h : 0.2
   
 gains:
-  back_right_wheel_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
-  back_left_wheel_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
-  fwd_right_wheel_holder_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
-  fwd_left_wheel_holder_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
+  $(arg robot)/back_right_wheel_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
+  $(arg robot)/back_left_wheel_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
+  $(arg robot)/fwd_right_wheel_holder_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
+  $(arg robot)/fwd_left_wheel_holder_j   :  {p: 100000.0, d: 10.0, i: 0.50, i_clamp: 3.0}
   

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
     
-    <arg name="robot" default="mse6"/>
+    <arg name="robot" default="mse6_00000"/>
     
     <group ns="perception">
         

@@ -8,13 +8,13 @@
     
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>mse6</robotNamespace>
+      <robotNamespace>$(arg robot)</robotNamespace>
       <robotSimType>steer_bot_hardware_gazebo/SteerBotHardwareGazebo</robotSimType>
       
     </plugin>
   </gazebo>
   
-  <gazebo reference="fwd_left_wheel_link">
+  <gazebo reference="$(arg robot)/fwd_left_wheel_link">
         <material>Gazebo/Black</material>
         <mu1>${wheel_friction}</mu1>
         <mu2>${2*wheel_friction}</mu2>
@@ -24,7 +24,7 @@
         <kd>${wheel_kd}</kd>
     </gazebo>
     
-    <gazebo reference="fwd_right_wheel_link">
+    <gazebo reference="$(arg robot)/fwd_right_wheel_link">
         <material>Gazebo/Black</material>
         <mu1>${wheel_friction}</mu1>
         <mu2>${2*wheel_friction}</mu2>
@@ -34,7 +34,7 @@
         <kd>${wheel_kd}</kd>
     </gazebo>
     
-    <gazebo reference="back_left_wheel_link">
+    <gazebo reference="$(arg robot)/back_left_wheel_link">
         <material>Gazebo/Black</material>
         <mu1>${wheel_friction}</mu1>
         <mu2>${2*wheel_friction}</mu2>
@@ -44,7 +44,7 @@
         <kd>${wheel_kd}</kd>
     </gazebo>
     
-    <gazebo reference="back_right_wheel_link">
+    <gazebo reference="$(arg robot)/back_right_wheel_link">
         <material>Gazebo/Black</material>
         <mu1>${wheel_friction}</mu1>
         <mu2>${2*wheel_friction}</mu2>
@@ -54,9 +54,9 @@
         <kd>${wheel_kd}</kd>
     </gazebo>
     
-    <gazebo reference="laser_scanner_link">
+    <gazebo reference="$(arg robot)/laser_scanner_link">
     <!--<sensor type="gpu_ray" name="rplidar">-->
-      <sensor type="ray" name="laser_scanner">
+      <sensor type="ray" name="$(arg robot)/laser_scanner">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
@@ -86,14 +86,14 @@
       </ray>
       <!--<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">-->
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/mse6/sensors/laser_scanner/scan_raw</topicName>
-        <frameName>/laser_scanner_link</frameName>
+        <topicName>$(arg robot)/sensors/laser_scanner/scan_raw</topicName>
+        <frameName>$(arg robot)/laser_scanner_link</frameName>
       </plugin>
     </sensor>
   </gazebo>
   
-  <gazebo reference="holocamera_link">
-    <sensor name="holocamera" type="depth">
+  <gazebo reference="$(arg robot)/holocamera_link">
+    <sensor name="$(arg robot)/holocamera" type="depth">
         <update_rate>10</update_rate>
         <camera>
             <horizontal_fov>1.047198</horizontal_fov>
@@ -112,8 +112,8 @@
                 <baseline>0.2</baseline>
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0</updateRate>
-                <cameraName>/mse6/sensors/holocamera</cameraName>
-                <frameName>/holocamera_optical_link</frameName>
+                <cameraName>/$(arg robot)/sensors/holocamera</cameraName>
+                <frameName>$(arg robot)/holocamera_optical_link</frameName>
                 <imageTopicName>rgb/image_raw</imageTopicName>
                 <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
                 <depthImageTopicName>depth_registered/image_raw</depthImageTopicName>
