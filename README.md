@@ -14,6 +14,13 @@ catkin_make
 TODO: Add full list including navigation and common ros control stuff
 
 ## Launch
+One droid in Gazebo
 ```
 roslaunch mse6_config gazebo.launch
 ```
+
+Two droids in Gazebo
+```
+roslaunch mse6_config multidroid_gazebo.launch
+```
+Droid amount can be set by `num_bots` parameter.
