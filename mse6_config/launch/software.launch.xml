@@ -22,7 +22,7 @@
             respawn="false" output="screen" 
             args="joint_state_controller mobile_base_controller"/>
 
-    <include file="$(find mse6_config)/launch/localization.launch">
+    <include file="$(find mse6_config)/launch/localization.launch.xml">
         <arg name="robot" value="$(arg robot)"/>
         <arg name="localization_type" value="$(arg localization_type)"/>
         <arg name="map_directory" value="$(arg map_directory)"/>
@@ -32,7 +32,7 @@
         <arg name="Y" value="$(arg Y)"/>
     </include>
 
-    <include file="$(find mse6_config)/launch/navigation.launch">
+    <include file="$(find mse6_config)/launch/motion.launch.xml">
         <arg name="robot" value="$(arg robot)"/>
     </include>
         

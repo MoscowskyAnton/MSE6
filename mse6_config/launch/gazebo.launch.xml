@@ -16,7 +16,7 @@
       
     <rosparam file="$(find mse6_config)/config/control/gazebo_control.yaml" command="load" subst_value="true"/>
     
-    <include file="$(find mse6_config)/launch/software.launch">
+    <include file="$(find mse6_config)/launch/software.launch.xml">
         <arg name="robot" value="$(arg robot)"/>
         <arg name="map_directory" value="$(arg map_directory)"/>
         <arg name="localization_type" value="$(arg localization_type)"/>
