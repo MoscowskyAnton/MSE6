@@ -23,4 +23,4 @@ Two droids in Gazebo
 ```
 roslaunch mse6_config multidroid_gazebo.launch
 ```
-Droid amount can be set by `num_droids` parameter.
+Droid amount can be set by `num_droids` parameter (up to 5).
