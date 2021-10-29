@@ -8,7 +8,7 @@
   
   <arg name="map_directory" default="empty"/>
   
-  <arg name="num_bots" default="2"/>
+  <arg name="num_droids" default="2"/>
   
   <!--
     FIXED_ODOM - map and odom statically fixed
@@ -51,7 +51,7 @@
       <arg name="Y" value="0"/>
   </include>
   
-  <include if="$(eval num_bots > 2)" file="$(find mse6_config)/launch/gazebo.launch.xml">
+  <include if="$(eval num_droids > 2)" file="$(find mse6_config)/launch/gazebo.launch.xml">
       <arg name="robot" value="mse6_00002"/>
       <arg name="map_directory" value="$(arg map_directory)"/>
       <arg name="localization_type" value="$(arg localization_type)"/>
@@ -60,11 +60,20 @@
       <arg name="Y" value="0"/>
   </include>
   
-  <include if="$(eval num_bots > 3)" file="$(find mse6_config)/launch/gazebo.launch.xml">
-      <arg name="robot" value="mse6_00002"/>
+  <include if="$(eval num_droids > 3)" file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00003"/>
       <arg name="map_directory" value="$(arg map_directory)"/>
       <arg name="localization_type" value="$(arg localization_type)"/>
       <arg name="x" value="3"/>
+      <arg name="y" value="0"/>
+      <arg name="Y" value="0"/>
+  </include>
+  
+  <include if="$(eval num_droids > 4)" file="$(find mse6_config)/launch/gazebo.launch.xml">
+      <arg name="robot" value="mse6_00004"/>
+      <arg name="map_directory" value="$(arg map_directory)"/>
+      <arg name="localization_type" value="$(arg localization_type)"/>
+      <arg name="x" value="4"/>
       <arg name="y" value="0"/>
       <arg name="Y" value="0"/>
   </include>

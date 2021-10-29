@@ -124,6 +124,108 @@ Visualization Manager:
           Value: true
         mse6_00001/odom:
           Value: true
+        mse6_00002/back_left_wheel_holder_link:
+          Value: true
+        mse6_00002/back_left_wheel_link:
+          Value: true
+        mse6_00002/back_right_wheel_holder_link:
+          Value: true
+        mse6_00002/back_right_wheel_link:
+          Value: true
+        mse6_00002/base_link:
+          Value: true
+        mse6_00002/body_bott_link:
+          Value: true
+        mse6_00002/body_upper_link:
+          Value: true
+        mse6_00002/fake_back_wheel_link:
+          Value: true
+        mse6_00002/fake_fwd_wheel_link:
+          Value: true
+        mse6_00002/fwd_left_wheel_holder_link:
+          Value: true
+        mse6_00002/fwd_left_wheel_link:
+          Value: true
+        mse6_00002/fwd_right_wheel_holder_link:
+          Value: true
+        mse6_00002/fwd_right_wheel_link:
+          Value: true
+        mse6_00002/holocamera_link:
+          Value: true
+        mse6_00002/holocamera_optical_link:
+          Value: true
+        mse6_00002/laser_scanner_link:
+          Value: true
+        mse6_00002/odom:
+          Value: true
+        mse6_00003/back_left_wheel_holder_link:
+          Value: true
+        mse6_00003/back_left_wheel_link:
+          Value: true
+        mse6_00003/back_right_wheel_holder_link:
+          Value: true
+        mse6_00003/back_right_wheel_link:
+          Value: true
+        mse6_00003/base_link:
+          Value: true
+        mse6_00003/body_bott_link:
+          Value: true
+        mse6_00003/body_upper_link:
+          Value: true
+        mse6_00003/fake_back_wheel_link:
+          Value: true
+        mse6_00003/fake_fwd_wheel_link:
+          Value: true
+        mse6_00003/fwd_left_wheel_holder_link:
+          Value: true
+        mse6_00003/fwd_left_wheel_link:
+          Value: true
+        mse6_00003/fwd_right_wheel_holder_link:
+          Value: true
+        mse6_00003/fwd_right_wheel_link:
+          Value: true
+        mse6_00003/holocamera_link:
+          Value: true
+        mse6_00003/holocamera_optical_link:
+          Value: true
+        mse6_00003/laser_scanner_link:
+          Value: true
+        mse6_00003/odom:
+          Value: true
+        mse6_00004/back_left_wheel_holder_link:
+          Value: true
+        mse6_00004/back_left_wheel_link:
+          Value: true
+        mse6_00004/back_right_wheel_holder_link:
+          Value: true
+        mse6_00004/back_right_wheel_link:
+          Value: true
+        mse6_00004/base_link:
+          Value: true
+        mse6_00004/body_bott_link:
+          Value: true
+        mse6_00004/body_upper_link:
+          Value: true
+        mse6_00004/fake_back_wheel_link:
+          Value: true
+        mse6_00004/fake_fwd_wheel_link:
+          Value: true
+        mse6_00004/fwd_left_wheel_holder_link:
+          Value: true
+        mse6_00004/fwd_left_wheel_link:
+          Value: true
+        mse6_00004/fwd_right_wheel_holder_link:
+          Value: true
+        mse6_00004/fwd_right_wheel_link:
+          Value: true
+        mse6_00004/holocamera_link:
+          Value: true
+        mse6_00004/holocamera_optical_link:
+          Value: true
+        mse6_00004/laser_scanner_link:
+          Value: true
+        mse6_00004/odom:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 0.5
       Name: TF
@@ -181,6 +283,81 @@ Visualization Manager:
                 mse6_00001/holocamera_optical_link:
                   {}
               mse6_00001/laser_scanner_link:
+                {}
+          mse6_00002/odom:
+            mse6_00002/base_link:
+              mse6_00002/body_bott_link:
+                mse6_00002/body_upper_link:
+                  mse6_00002/back_left_wheel_holder_link:
+                    mse6_00002/back_left_wheel_link:
+                      {}
+                  mse6_00002/back_right_wheel_holder_link:
+                    mse6_00002/back_right_wheel_link:
+                      {}
+                  mse6_00002/fake_back_wheel_link:
+                    {}
+                  mse6_00002/fake_fwd_wheel_link:
+                    {}
+                  mse6_00002/fwd_left_wheel_holder_link:
+                    mse6_00002/fwd_left_wheel_link:
+                      {}
+                  mse6_00002/fwd_right_wheel_holder_link:
+                    mse6_00002/fwd_right_wheel_link:
+                      {}
+              mse6_00002/holocamera_link:
+                mse6_00002/holocamera_optical_link:
+                  {}
+              mse6_00002/laser_scanner_link:
+                {}
+          mse6_00003/odom:
+            mse6_00003/base_link:
+              mse6_00003/body_bott_link:
+                mse6_00003/body_upper_link:
+                  mse6_00003/back_left_wheel_holder_link:
+                    mse6_00003/back_left_wheel_link:
+                      {}
+                  mse6_00003/back_right_wheel_holder_link:
+                    mse6_00003/back_right_wheel_link:
+                      {}
+                  mse6_00003/fake_back_wheel_link:
+                    {}
+                  mse6_00003/fake_fwd_wheel_link:
+                    {}
+                  mse6_00003/fwd_left_wheel_holder_link:
+                    mse6_00003/fwd_left_wheel_link:
+                      {}
+                  mse6_00003/fwd_right_wheel_holder_link:
+                    mse6_00003/fwd_right_wheel_link:
+                      {}
+              mse6_00003/holocamera_link:
+                mse6_00003/holocamera_optical_link:
+                  {}
+              mse6_00003/laser_scanner_link:
+                {}
+          mse6_00004/odom:
+            mse6_00004/base_link:
+              mse6_00004/body_bott_link:
+                mse6_00004/body_upper_link:
+                  mse6_00004/back_left_wheel_holder_link:
+                    mse6_00004/back_left_wheel_link:
+                      {}
+                  mse6_00004/back_right_wheel_holder_link:
+                    mse6_00004/back_right_wheel_link:
+                      {}
+                  mse6_00004/fake_back_wheel_link:
+                    {}
+                  mse6_00004/fake_fwd_wheel_link:
+                    {}
+                  mse6_00004/fwd_left_wheel_holder_link:
+                    mse6_00004/fwd_left_wheel_link:
+                      {}
+                  mse6_00004/fwd_right_wheel_holder_link:
+                    mse6_00004/fwd_right_wheel_link:
+                      {}
+              mse6_00004/holocamera_link:
+                mse6_00004/holocamera_optical_link:
+                  {}
+              mse6_00004/laser_scanner_link:
                 {}
       Update Interval: 0
       Value: true
@@ -365,6 +542,276 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        mse6_00002/back_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/back_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/back_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/back_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00002/body_bott_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/body_upper_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/fake_back_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00002/fake_fwd_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00002/fwd_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/fwd_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/fwd_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/fwd_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00002/holocamera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00002/holocamera_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00002/laser_scanner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: MSE6_00002
+      Robot Description: mse6_00002/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        mse6_00003/back_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/back_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/back_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/back_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00003/body_bott_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/body_upper_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/fake_back_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00003/fake_fwd_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00003/fwd_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/fwd_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/fwd_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/fwd_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00003/holocamera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00003/holocamera_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00003/laser_scanner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: MSE6_00003
+      Robot Description: mse6_00003/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        mse6_00004/back_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/back_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/back_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/back_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00004/body_bott_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/body_upper_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/fake_back_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00004/fake_fwd_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00004/fwd_left_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/fwd_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/fwd_right_wheel_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/fwd_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mse6_00004/holocamera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00004/holocamera_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        mse6_00004/laser_scanner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: MSE6_00004
+      Robot Description: mse6_00004/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
         Max Value: 10
@@ -420,6 +867,90 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: 00002_scan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Flat Squares
+      Topic: /mse6_00002/sensors/laser_scanner/scan_raw
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 85; 170; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: 00003_scan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Flat Squares
+      Topic: /mse6_00003/sensors/laser_scanner/scan_raw
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 85; 255; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: 00004_scan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Flat Squares
+      Topic: /mse6_00004/sensors/laser_scanner/scan_raw
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -448,7 +979,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.7769622802734375
+      Distance: 10.319276809692383
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
