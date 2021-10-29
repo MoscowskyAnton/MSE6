@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
 
-  <arg name="robot" default="mse6"/>
-  <arg name="localization_type" default="FIXED_ODOM"/>
+    <arg name="robot" default="mse6_00000"/>
+    <arg name="localization_type" default="FIXED_ODOM"/>
       
-  <arg name="map_directory" default="empty"/>
-  
-  <group ns="$(arg robot)">          
+    <arg name="map_directory" default="empty"/>
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>    
+    <arg name="Y" default="0"/>        
         
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mse6_description)/urdf/mse6.xacro'"/>
-    
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mse6_description)/urdf/mse6.xacro' robot:=$(arg robot)"/>
+
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>    
-    
+
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
             <param name="use_gui" value="False"/>
     </node>    
@@ -19,14 +21,19 @@
     <node name="controller_spawner" pkg="controller_manager" type="spawner" 
             respawn="false" output="screen" 
             args="joint_state_controller mobile_base_controller"/>
-    
+
     <include file="$(find mse6_config)/launch/localization.launch">
+        <arg name="robot" value="$(arg robot)"/>
         <arg name="localization_type" value="$(arg localization_type)"/>
         <arg name="map_directory" value="$(arg map_directory)"/>
+        
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="Y" value="$(arg Y)"/>
     </include>
-    
-    <include file="$(find mse6_config)/launch/navigation.launch"/>
 
-  </group>
-  
+    <include file="$(find mse6_config)/launch/navigation.launch">
+        <arg name="robot" value="$(arg robot)"/>
+    </include>
+        
 </launch>

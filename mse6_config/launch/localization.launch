@@ -1,9 +1,8 @@
 <?xml version="1.0" ?>
 <launch>
     
-    <arg name="robot" default="mse6"/>
+    <arg name="robot" default="mse6_00000"/>
     <arg name="map_directory" default="empty"/>
-    
     
     <!--
     FIXED_ODOM - map and odom statically fixed
@@ -11,15 +10,22 @@
     -->
     <arg name="localization_type" default="FIXED_ODOM"/>
     
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>    
+    <arg name="Y" default="0"/>    
+    
     <group ns="localization">
         
         <!-- FIXED ODOM -->
         <node if="$(eval localization_type == 'FIXED_ODOM')" pkg="tf" type="static_transform_publisher" name="static_odom_broadcaster"
-              args="0 0 0 0 0 0 map odom 100"/>          
+              args="$(arg x) $(arg y) 0 $(arg Y) 0 0 map $(arg robot)/odom 100"/>          
         
         <!-- GAZEBO GROUND TRUTH -->
-        <node if="$(eval localization_type == 'GAZEBO_GROUND_TRUTH')" pkg="mse6_gazebo" type="gazebo_ground_truth_localizer.py" name="gazebo_ground_truth_localizer">
+        <node if="$(eval localization_type == 'GAZEBO_GT')" pkg="mse6_gazebo" type="gazebo_ground_truth_localizer.py" name="gazebo_ground_truth_localizer" output="screen">
             <param name="rate_hz" value="50"/>
+            <param name="robot_name" value="$(arg robot)"/>
+            <param name="robot_frame" value="$(arg robot)/base_link"/>
+            <param name="odom_frame" value="$(arg robot)/odom"/>            
         </node>                
         
         <!-- COMMON -->
