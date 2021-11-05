@@ -1,6 +1,7 @@
 # MSE6
 Gazebo model and soft for droid MSE6 (also known as [mouse droid](https://starwars.fandom.com/wiki/MSE-6-series_repair_droid)) from Star Wars
 
+![BD1 Gazebo](doc/MSE6.png)
 
 ## Installation
 On Melodic\Noetic
