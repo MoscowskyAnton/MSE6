@@ -1,6 +1,7 @@
 # MSE6
 Gazebo model and soft for droid MSE6 (also known as [mouse droid](https://starwars.fandom.com/wiki/MSE-6-series_repair_droid)) from Star Wars
 
+![BD1 Gazebo](doc/MSE6.png)
 
 ## Installation
 On Melodic\Noetic
@@ -8,10 +9,9 @@ On Melodic\Noetic
 cd <your_workspace>/src
 git clone https://github.com/MoscowskyAnton/MSE6
 git clone https://github.com/CIR-KIT/steer_drive_ros -b melodic-devel
-sudo apt install ros-$ROS_DISTRO-ackermann-steering-controller
+sudo apt install ros-$ROS_DISTRO-ackermann-steering-controller ros-$ROS_DISTRO-costmap-2d ros-$ROS_DISTRO-nav base-local-planner ros-$ROS_DISTRO-teb-local-planner ros-$ROS_DISTRO-map-server ros-$ROS_DISTRO-move-base ros-$ROS_DISTRO-global-planner
 catkin_make
 ```
-TODO: Add full list including navigation and common ros control stuff
 
 ## Launch
 One droid in Gazebo
