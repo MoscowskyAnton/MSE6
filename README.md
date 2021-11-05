@@ -8,7 +8,7 @@ On Melodic\Noetic
 cd <your_workspace>/src
 git clone https://github.com/MoscowskyAnton/MSE6
 git clone https://github.com/CIR-KIT/steer_drive_ros -b melodic-devel
-sudo apt install ros-$ROS_DISTRO-ackermann-steering-controller
+sudo apt install ros-$ROS_DISTRO-ackermann-steering-controller ros-noetic-costmap-2d ros-noetic-nav base-local-planner ros-noetic-teb-local-planner ros-noetic-map-server ros-noetic-move-base ros-noetic-global-planner
 catkin_make
 ```
 TODO: Add full list including navigation and common ros control stuff
