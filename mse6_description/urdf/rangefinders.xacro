@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="field_of_view" value=".1"/>
+  <xacro:property name="update_rate" value="5"/>
+  <xacro:property name="ray_count" value="1"/>
+  <xacro:property name="min_range" value=".1"/>
+  <xacro:property name="max_range" value="3."/>
+
   <xacro:macro name="sonar" params="name x y z wr wp wy">
     <link name="$(arg robot)/sonar_${name}_link"/>
     
@@ -13,7 +19,39 @@
     </joint>
 
     <gazebo reference="$(arg robot)/sonar_${name}_link">
-      <material>Gazebo/Black</material>
+      <sensor type="ray" name="$(arg robot)/sonar_${name}_link">
+        <always_on>true</always_on>
+        <update_rate>${update_rate}</update_rate>
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>${ray_count}</samples>
+              <resolution>1</resolution>
+              <min_angle>-${field_of_view/2}</min_angle>
+              <max_angle> ${field_of_view/2}</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>${ray_count}</samples>
+              <resolution>1</resolution>
+              <min_angle>-${field_of_view/2}</min_angle>
+              <max_angle> ${field_of_view/2}</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>${min_range}</min>
+            <max>${max_range}</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+
+        <plugin name="gazebo_ros_${name}_controller" filename="libhector_gazebo_ros_sonar.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <topicName>$(arg robot)/sensors/rangefinders/sonar_${name}_link</topicName>
+          <frameId>$(arg robot)/sonar_${name}_link</frameId>
+        </plugin>
+      </sensor>
     </gazebo>
   </xacro:macro>
 
