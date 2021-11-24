@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="sonar" params="name x y z wr wp wy">
+    <link name="$(arg robot)/sonar_${name}_link"/>
+    
+    <joint name="$(arg robot)/sonar_${name}_j"
+           type="fixed">
+        <parent link="$(arg robot)/base_link"/>
+        <child link="$(arg robot)/sonar_${name}_link"/>
+        <origin
+            xyz="${x} ${y} ${z}"
+            rpy="${wr} ${wp} ${wy}"/>
+    </joint>
+
+    <gazebo reference="$(arg robot)/sonar_${name}_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:sonar name="fl" x="0.15" y="0.045" z="0.07" wr="0" wp="0" wy="0" />
+  <xacro:sonar name="fr" x="0.15" y="-0.045" z="0.07" wr="0" wp="0" wy="0" />
+  <xacro:sonar name="rf" x="0.1" y="-0.075" z="0.07" wr="0" wp="0" wy="-${pi/2}" />
+  <xacro:sonar name="rb" x="-0.1" y="-0.075" z="0.07" wr="0" wp="0" wy="-${pi/2}" />
+  <xacro:sonar name="bl" x="-0.15" y="0.045" z="0.07" wr="0" wp="0" wy="${pi}" />
+  <xacro:sonar name="br" x="-0.15" y="-0.045" z="0.07" wr="0" wp="0" wy="${pi}" />
+  <xacro:sonar name="lf" x="0.1" y="0.075" z="0.07" wr="0" wp="0" wy="${pi/2}" />
+  <xacro:sonar name="lb" x="-0.1" y="0.075" z="0.07" wr="0" wp="0" wy="${pi/2}" />
+</robot>

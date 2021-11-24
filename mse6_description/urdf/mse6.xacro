@@ -59,7 +59,10 @@
           xyz="0 0 0"
           rpy="${-pi/2} 0 ${-pi/2}"/>
   </joint>
-  
+
+  <!-- Rangefinders (sonar) -->
+  <xacro:include filename="$(find mse6_description)/urdf/rangefinders.xacro"/>
+
   <!-- BODY -->
   
   <joint name="$(arg robot)/body_bott_link_j"
