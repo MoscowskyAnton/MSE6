@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="field_of_view" value=".1"/>
+  <xacro:property name="update_rate" value="5"/>
+  <xacro:property name="ray_count" value="1"/>
+  <xacro:property name="min_range" value=".1"/>
+  <xacro:property name="max_range" value="3."/>
+
+  <xacro:macro name="sonar" params="name x y z wr wp wy">
+    <link name="$(arg robot)/sonar_${name}_link"/>
+    
+    <joint name="$(arg robot)/sonar_${name}_j"
+           type="fixed">
+        <parent link="$(arg robot)/base_link"/>
+        <child link="$(arg robot)/sonar_${name}_link"/>
+        <origin
+            xyz="${x} ${y} ${z}"
+            rpy="${wr} ${wp} ${wy}"/>
+    </joint>
+
+    <gazebo reference="$(arg robot)/sonar_${name}_link">
+      <sensor type="ray" name="$(arg robot)/sonar_${name}_link_sensor">
+        <always_on>true</always_on>
+        <update_rate>${update_rate}</update_rate>
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>${ray_count}</samples>
+              <resolution>1</resolution>
+              <min_angle>-${field_of_view/2}</min_angle>
+              <max_angle> ${field_of_view/2}</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>${ray_count}</samples>
+              <resolution>1</resolution>
+              <min_angle>-${field_of_view/2}</min_angle>
+              <max_angle> ${field_of_view/2}</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>${min_range}</min>
+            <max>${max_range}</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+
+        <plugin name="gazebo_ros_sonar_${name}_controller" filename="libhector_gazebo_ros_sonar.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <topicName>$(arg robot)/sensors/rangefinders/sonar_${name}_link</topicName>
+          <frameId>$(arg robot)/sonar_${name}_link</frameId>
+        </plugin>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:sonar name="fl" x="0.15" y="0.045" z="0.07" wr="0" wp="0" wy="0" />
+  <xacro:sonar name="fr" x="0.15" y="-0.045" z="0.07" wr="0" wp="0" wy="0" />
+  <xacro:sonar name="rf" x="0.1" y="-0.075" z="0.07" wr="0" wp="0" wy="-${pi/2}" />
+  <xacro:sonar name="rb" x="-0.1" y="-0.075" z="0.07" wr="0" wp="0" wy="-${pi/2}" />
+  <xacro:sonar name="bl" x="-0.15" y="0.045" z="0.07" wr="0" wp="0" wy="${pi}" />
+  <xacro:sonar name="br" x="-0.15" y="-0.045" z="0.07" wr="0" wp="0" wy="${pi}" />
+  <xacro:sonar name="lf" x="0.1" y="0.075" z="0.07" wr="0" wp="0" wy="${pi/2}" />
+  <xacro:sonar name="lb" x="-0.1" y="0.075" z="0.07" wr="0" wp="0" wy="${pi/2}" />
+</robot>
