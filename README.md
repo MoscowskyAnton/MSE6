@@ -13,6 +13,12 @@ sudo apt install ros-$ROS_DISTRO-ackermann-steering-controller ros-$ROS_DISTRO-c
 catkin_make
 ```
 
+Alternatively, install all the system dependencies using rosdep:
+```
+cd <your_workspace>
+rosdep install --from-paths src --ignore-src -r -y
+```
+
 ## Launch
 One droid in Gazebo
 ```

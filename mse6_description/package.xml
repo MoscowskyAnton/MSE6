@@ -17,7 +17,7 @@ for mse6_description robot</p>
   <depend>rviz</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>gazebo</depend>
-  <depend>ros-noetic-hector-gazebo-plugins</depend>
+  <depend>hector_gazebo_plugins</depend>
 
   <export>
     <architecture_independent />
